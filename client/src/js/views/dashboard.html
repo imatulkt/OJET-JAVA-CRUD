@@ -1,0 +1,142 @@
+<!--
+ Copyright (c) 2014, 2022, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+
+    <!--  CREATE -->
+    <h5>Add or Update Student Details</h5>
+    <div>
+        <div id="AddDemo" class="demo-padding demo-container">
+          <div id="componentDemoContent" style="width: 1px; min-width: 100%;">   
+            <div id="card-container">
+              <oj-action-card
+                id="Default"
+                class="oj-sm-margin-2x demo-card-content" style="width: 50%;
+                height: 100%;
+                padding: 2rem;">
+                <div>
+                
+                <div id="div1">
+                  <oj-input-text
+                    id="input1"
+                    required="true"
+                    class="oj-form-control-width-sm"
+                    value="{{studentIdForAdd}}"
+                    label-hint="Enter Student ID"
+                    label-edge="inside"></oj-input-text>
+                </div>
+
+                <div id="div2">
+                  <oj-input-text
+                    id="input2"
+                    required="true"
+                    class="oj-form-control-width-sm"
+                    value="{{studentNameForAdd}}"
+                    label-hint="Enter Student Name"
+                    label-edge="inside"></oj-input-text>
+                </div>
+      
+                <oj-button id="button1" on-oj-action="[[addstudentbuttonAction]]">Submit</oj-button>
+                
+
+              </div>
+              </oj-action-card>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <!-- DELETE ACTION -->
+    <h5>Delete Student Record</h5>
+    <div>
+        <div id="DeleteDemo" class="demo-padding demo-container">
+          <div id="componentDemoContent" style="width: 1px; min-width: 100%;">   
+            <div id="card-container">
+              <oj-action-card
+                id="Default"
+                class="oj-sm-margin-2x demo-card-content" style="width: 50%;
+                height: 100%;
+                padding: 2rem;">
+
+                <div>
+
+                    <div id="div3">
+                      <oj-input-text
+                        id="input1"
+                        required="true"
+                        class="oj-form-control-width-sm"
+                        value="{{studentIdForDelete}}"
+                        label-hint="Enter Student ID"
+                        label-edge="inside"></oj-input-text>
+                    </div>
+
+                    <oj-button id="button2" on-oj-action="[[deletestudentbuttonAction]]">Submit</oj-button>
+                </div>
+
+
+                  </oj-action-card>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <!-- SEARCH BY ID-->
+    <h5>Search Student Record</h5>
+    <div>
+        <div id="SearchDemo" class="demo-padding demo-container">
+          <div id="componentDemoContent" style="width: 1px; min-width: 100%;">   
+            <div id="card-container">
+              <oj-action-card
+                id="Default"
+                class="oj-sm-margin-2x demo-card-content" style="width: 50%;
+                height: 100%;
+                padding: 2rem;">
+
+                <div>
+
+                  <div id="div4">
+                    <oj-input-text
+                      id="input1"
+                      required="true"
+                      class="oj-form-control-width-sm"
+                      value="{{studentIdForSearch}}"
+                      label-hint="Enter Student ID"
+                      label-edge="inside"></oj-input-text>
+                  </div>
+                  <oj-button id="button1" on-oj-action="[[searchstudentbuttonAction]]">Submit</oj-button>
+
+                </div>
+
+
+                  </oj-action-card>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <oj-table
+  id="table"
+  aria-label="Students Table"
+  accessibility.row-header="depName"
+  data="[[studentdataprovider]]"
+  selection-mode='{"row": "multiple", "column": "multiple"}'
+  dnd='{"reorder": {"columns": "enabled"}}'
+  scroll-policy="loadMoreOnScroll"
+  scroll-policy-options='{"fetchSize": 10}'
+  columns='[{"headerText": "Student Id", 
+             "field": "studentId",
+             "headerClassName": "oj-sm-only-hide",
+             "className": "oj-sm-only-hide",
+             "resizable": "enabled",
+             "id": "studentId"},
+            {"headerText": "Student Name", 
+             "field": "studentName",
+             "resizable": "enabled",
+             "id": "studentName"}]'
+  class="demo-table-container"></oj-table>
+
+
+</div>

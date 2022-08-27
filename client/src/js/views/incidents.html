@@ -1,0 +1,47 @@
+<!--
+ Copyright (c) 2014, 2022, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Search a record</h1>
+  <div>
+    <div id="div1">
+      <oj-input-text
+        id="input1"
+        required="true"
+        class="oj-form-control-width-sm"
+        value="{{studentId}}"
+        label-hint="Enter Student ID"
+        label-edge="inside"></oj-input-text>
+    </div>
+
+    <oj-button id="button1" on-oj-action="[[buttonAction]]">Submit</oj-button>
+    
+  </div>
+
+
+  <oj-table
+  id="table"
+  aria-label="Students Table"
+  accessibility.row-header="depName"
+  data="[[studentdataprovider]]"
+  selection-mode='{"row": "multiple", "column": "multiple"}'
+  dnd='{"reorder": {"columns": "enabled"}}'
+  scroll-policy="loadMoreOnScroll"
+  scroll-policy-options='{"fetchSize": 10}'
+  columns='[{"headerText": "Student Id", 
+             "field": "studentId",
+             "headerClassName": "oj-sm-only-hide",
+             "className": "oj-sm-only-hide",
+             "resizable": "enabled",
+             "id": "studentId"},
+            {"headerText": "Student Name", 
+             "field": "studentName",
+             "resizable": "enabled",
+             "id": "studentName"}]'
+  class="demo-table-container"></oj-table>
+
+
+  
+</div>
